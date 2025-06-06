@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-app1
+  template:
+    metadata:
+      labels:
+        app: flask-app1
+    spec:
+      containers:
+      - name: flask-app1
+        image: rutulpachpor/flask-devops-app1:latest
+        ports:
+        - containerPort: 5000
